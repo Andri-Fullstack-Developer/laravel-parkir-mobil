@@ -1,0 +1,17 @@
+.container{
+   color: red;
+}
+a{
+    text-decoration: none;
+    color: red;
+}
+
+@media screen and (max-width: 600px) {
+    .data-parkir{
+        background: red;
+        
+    }
+    .data-parkir-das{
+        width: 1rem;
+    }
+}

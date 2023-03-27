@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\ParkirController;
+
+use App\Http\Controllers\ParkirmobilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +19,7 @@ use App\Http\Controllers\Admin;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/welcome');
 });
 
 Route::prefix('admin')-> group(function(){
@@ -30,3 +33,11 @@ Route::prefix('admin')-> group(function(){
 Route::get('/input', function (){
      return view('/inc.inpt');
      });
+
+//Route::get('/out.store', [ParkirController::class, 'out.store'])->name('out.store');
+Route::post('/out', [ParkirController::class, 'store'])->name('out.store');
+Route::get('/welcome', [ParkirController::class, 'index'])->name('welcome');
+
+
+//Route::get('/form', [Parkir\ParkirmobilController::class, 'index']);
+//Route::post('/simpan-data', [Parkir\ParkirmobilController::class, 'submit']);

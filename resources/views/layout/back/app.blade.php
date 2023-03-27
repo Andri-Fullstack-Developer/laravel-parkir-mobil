@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
     <style>
         .table-responsive {
             overflow-x: auto;
@@ -61,16 +65,16 @@
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
-        <div>@section('sidear')
+        {{-- <div>@section('sidear')
             @include('layout.back.inc.sidear')
-        @show</div>
-        
+        @show</div> --}}
+
         <!-- Page content wrapper-->
 
 
         <!-- Top navigation-->
-        @section('header')
-            @include('layout.back.inc.header')
+        @section('nav')
+            @include('layout.back.inc.nav')
         @show
         <!-- Page content-->
         {{-- <div class="container-fluid z-50 mt-5">
@@ -78,10 +82,23 @@
         </div> --}}
 
         <div class="container-fluid mt-5">
-            @section('hasil')
-                @include('layout.back.inc.hasil')
+            @section('data')
+                @include('layout.back.inc.data')
             @show
         </div>
+
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Pilih
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Pilihan 1</a>
+                <a class="dropdown-item" href="#">Pilihan 2</a>
+                <a class="dropdown-item" href="#">Pilihan 3</a>
+            </div>
+        </div>
+
     </div>
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
@@ -112,6 +129,16 @@
     <script src="{{ asset('dash/js/Chart.roundedBarCharts.js') }}"></script>
     <!-- End custom js for this page-->
     <script src="{{ asset('dash/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $(".dropdown-menu a").click(function() {
+                $(".btn:first-child").text($(this).text());
+                $(".btn:first-child").val($(this).text());
+            });
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </body>
 
 </html>

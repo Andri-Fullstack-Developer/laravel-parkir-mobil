@@ -15,8 +15,8 @@ class AdminSeeder extends Seeder
         //
         \App\Models\Admin::insert([
             [
-                'name'=>'pegawai',
-                'email'=>'pegaiwai@domain.com',
+                'name'=>'Admin',
+                'email'=>'Admin@domain.com',
                 'password'=>bcrypt('222'),
                 'created_at'=>\Carbon\Carbon::now('Asia/Jakarta')
             ],
